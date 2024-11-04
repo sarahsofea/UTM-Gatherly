@@ -14,6 +14,7 @@ class CalendarController extends Controller
         require_once ROOT_PATH . 'config/db.php';
 
         $sql = "SELECT * FROM event";
+        // $sql = "SELECT * FROM event WHERE user_id = ";
         $result = $conn->query($sql);
         $event = [];
 

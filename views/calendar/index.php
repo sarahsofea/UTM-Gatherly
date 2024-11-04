@@ -88,7 +88,7 @@
             console.error('Error fetching events:', error);
           }
         }
-      ], // <-- Added a comma here
+      ], 
 
       eventClick: function(info) {
         // Show a confirmation dialog
@@ -153,6 +153,6 @@
       .catch(error => {
         console.error("Error:", error);
         alert("An error occurred while deleting the event.");
-      }); // <-- Closed the missing parenthesis here
+      }); 
   }
 </script>
