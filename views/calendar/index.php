@@ -57,6 +57,14 @@
 <?php include 'add_event.php'; ?>
 <!-- End Add Event Form -->
 
+<!-- View Event Form -->
+<?php include 'view_event.php'; ?>
+<!-- End View Event Form -->
+
+<!-- Update Event Form -->
+<?php include 'update_event.php'; ?>
+<!-- End Update Event Form -->
+
 
 <script>
   var fetchUrl = "<?= BASE_URL; ?>index.php?r=calendar/fetchEvent";
@@ -91,15 +99,20 @@
       ], 
 
       eventClick: function(info) {
-        // Show a confirmation dialog
-        if (confirm("Are you sure you want to delete this event?")) {
-          // If user clicks "OK", proceed to delete the event
-          delete_event(info.event.id); // Pass the event ID to delete
-        }
-        // If "Cancel" is clicked, no action is taken
-      }
-    });
+      document.getElementById("event_name_display").innerText = info.event.title;
+      document.getElementById("event_start_date_display").innerText = info.event.start.toLocaleDateString();
+      document.getElementById("event_end_date_display").innerText = info.event.end ? info.event.end.toLocaleDateString() : '';
+      document.getElementById("event_description_display").innerText = info.event.extendedProps.description;
 
+      // Store event ID for edit and delete operations
+      document.getElementById("event_details_modal").dataset.eventId = info.event.id;
+
+      // Show the event details modal
+      $('#event_details_modal').modal('show');
+        
+    }
+    });
+    
     calendar.render();
   });
 
@@ -129,30 +142,118 @@
       });
   }
 
-  function delete_event(eventId) {
-    // Create a form data object for deletion
-    var formData = new FormData();
-    formData.append("event_id", eventId);
+  function delete_event() {
 
-    fetch("<?= BASE_URL; ?>index.php?r=calendar/deleteEvent", {
-      method: "POST",
-      body: formData,
+    var eventId = document.getElementById("event_details_modal").dataset.eventId;
+    
+    if (confirm("Are you sure you want to delete this event?")) {
+        // Proceed with deletion if confirmed
+        var formData = new FormData();
+        formData.append("event_id", eventId);
+
+        fetch("<?= BASE_URL; ?>index.php?r=calendar/deleteEvent", {
+            method: "POST",
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert(data.message); // Show a success message
+                $('#event_details_modal').modal('hide'); // Hide modal after deletion
+                location.reload(); // Reload the page or refresh events on the calendar
+                console.log("Event deleted successfully");
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while deleting the event.");
+        });
+    }
+}
+
+  function view_event(eventId) {
+      fetch("<?= BASE_URL; ?>index.php?r=calendar/fetchSingleEvent", {
+            method: "POST",
+            body: JSON.stringify({ event_id: eventId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Fill modal with event data
+            document.getElementById("view_event_name").textContent = data.title;
+            document.getElementById("view_event_start_date").textContent = data.start;
+            document.getElementById("view_event_end_date").textContent = data.end;
+            document.getElementById("view_event_description").textContent = data.description;
+
+            // Show the modal
+            $('#event_details_modal').modal('show');
+        })
+        .catch(error => console.error("Error fetching event data:", error));
+  }
+
+  function edit_event(eventId) {
+
+    var eventId = document.getElementById("event_details_modal").dataset.eventId;
+
+    $('#event_details_modal').modal('hide')
+  
+    // Fetch current event details
+    fetch("<?= BASE_URL; ?>index.php?r=calendar/fetchSingleEvent", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ event_id: eventId })
     })
-      .then(response => response.json())
-      .then(data => {
+    .then(response => response.json())
+    .then(data => {
         if (data.status === "success") {
-          // Remove event from calendar if deletion is successful
-          alert(data.message);
-          // Optionally, you can also use calendar.refetchEvents() to reload events
-          location.reload();
-          console.log("Event deleted successfully");
+            // Populate the form fields with the existing event data
+            document.getElementById("edit_event_id").value = data.event_id;
+            document.getElementById("edit_event_name").value = data.event_name;
+            document.getElementById("edit_event_start_date").value = data.start_date;
+            document.getElementById("edit_event_end_date").value = data.end_date;
+            document.getElementById("edit_event_description").value = data.description;
+
+            // Show the edit event modal
+            $('#edit_event_modal').modal('show');
         } else {
-          alert(data.message);
+            alert(data.message);
         }
+    })
+    .catch(error => console.error("Error fetching event data:", error));
+}
+
+  function update_event() {
+
+    const eventId = document.getElementById("edit_event_id").value;
+    const eventName = document.getElementById("edit_event_name").value;
+    const startDate = document.getElementById("edit_event_start_date").value;
+    const endDate = document.getElementById("edit_event_end_date").value;
+    const description = document.getElementById("edit_event_description").value;
+
+    fetch("<?= BASE_URL; ?>index.php?r=calendar/updateEvent", {
+      method: "POST",
+      body: JSON.stringify({
+        event_id: eventId,
+        event_name: eventName,
+        start_date: startDate,
+        end_date: endDate,
+        description: description
       })
-      .catch(error => {
-        console.error("Error:", error);
-        alert("An error occurred while deleting the event.");
-      }); 
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === "success") {
+        alert(data.message);
+        $('#edit_event_modal').modal('hide');
+        location.reload(); // Reload calendar to reflect changes
+      } else {
+        alert(data.message);
+      }
+    })
+    .catch(error => console.error("Error updating event:", error));
   }
 </script>
+

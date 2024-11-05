@@ -1,7 +1,3 @@
-<?php
-// $page = $_GET['page']; 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +10,7 @@
     <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+        /* header color gradient */
         .bg-maroon-gradient {
             color: #fff !important;
             background: linear-gradient(to right, #4b0000, #800000, #b22222) !important;
@@ -55,9 +52,6 @@
         </div>
     </header>
 
-    <!-- Bootstrap JS and Popper.js -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>
