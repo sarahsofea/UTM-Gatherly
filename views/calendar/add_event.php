@@ -52,8 +52,8 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="event_end_date">Event end</label>
-                                    <input type="date" name="event_end_date" id="event_end_date" class="form-control"
-                                        required>
+                                    <input type="date" name="event_end_date" id="event_end_date" 
+                                        class="form-control onlydatepicker" required>
                                 </div>
                             </div>
                         </div>
