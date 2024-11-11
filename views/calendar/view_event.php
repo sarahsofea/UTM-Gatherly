@@ -1,6 +1,6 @@
 <!-- Event Details Modal -->
 <div class="modal fade" id="event_details_modal" tabindex="-1" role="dialog" aria-labelledby="eventDetailsLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <!-- Header with Event Title and Close Button -->
             <div class="modal-header custom-header">

@@ -66,6 +66,7 @@
 <!-- End Update Event Form -->
 
 
+
 <script>
   var fetchUrl = "<?= BASE_URL; ?>index.php?r=calendar/fetchEvent";
   var createEventUrl = "<?= BASE_URL; ?>index.php?r=calendar/createEvent";
@@ -97,11 +98,21 @@
           }
         }
       ], 
+      eventColor: '#BF4342',
 
-      eventClick: function(info) {
+      eventClick: function(info) { //info=event yang show kat calendar
       document.getElementById("event_name_display").innerText = info.event.title;
-      document.getElementById("event_start_date_display").innerText = info.event.start.toLocaleDateString();
-      document.getElementById("event_end_date_display").innerText = info.event.end ? info.event.end.toLocaleDateString() : '';
+
+      var startDate = moment(info.event.start).format('DD/MM/YYYY');
+      document.getElementById("event_start_date_display").innerText = startDate;
+
+      let endDate = info.event.end ? new Date(info.event.end) : null;
+      if (endDate) {
+        endDate.setDate(endDate.getDate() - 1); // Add one day
+        endDate = moment(endDate).format('DD/MM/YYYY'); 
+      }
+      
+      document.getElementById("event_end_date_display").innerText = endDate ? endDate : '';
       document.getElementById("event_description_display").innerText = info.event.extendedProps.description;
 
       // Store event ID for edit and delete operations
@@ -117,6 +128,15 @@
   });
 
   function save_event() {
+    var event_name=$("#event_name").val();
+    var event_start_date=$("#event_start_date").val();
+    var event_end_date=$("#event_end_date").val();
+    var event_description=$("#event_description").val();
+    if(event_name=="" || event_start_date=="" || event_end_date=="" || event_description=="")
+    {
+    alert("Please enter all required details.");
+    return false;
+    }
     var formData = new FormData(document.getElementById("eventForm"));
 
     fetch("<?= BASE_URL; ?>index.php?r=calendar/createEvent", {
