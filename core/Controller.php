@@ -10,6 +10,8 @@ class Controller
     {
         extract($data);
         $content = $this->renderPartial($view, $data);
+        
+        // Include layout with embedded view content
         include VIEW_PATH . "layout/{$this->layout}.php";
     }
 
@@ -17,17 +19,25 @@ class Controller
     protected function renderPartial($view, $data)
     {
         extract($data);
+        // Start output buffering
         ob_start();
-
+        
         // Dynamically build the path to the view file
         $controllerName = strtolower(str_replace('Controller', '', get_class($this)));
         $viewFile = VIEW_PATH . $controllerName . DIRECTORY_SEPARATOR . $view . '.php';
+        
+        
         if (file_exists($viewFile)) {
             include $viewFile;
+            
         } else {
             echo "View file $view.php not found.";
         }
-
-        return ob_get_clean();
+        
+        // Return the captured content
+        // return ob_get_clean();
+        if($view != 'login'){
+            return ob_get_clean();
+        } 
     }
 }
