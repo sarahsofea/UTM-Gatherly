@@ -56,6 +56,7 @@
               <option value="" disabled selected>Select event type</option>
               <option value="Personal">Personal</option>
               <option value="Academic">Academic</option>
+              <option value="Entrepreneurship">Entrepreneurship</option>
               <option value="Sport">Sport</option>
               <option value="Volunteering">Volunteering</option>
             </select>
