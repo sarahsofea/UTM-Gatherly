@@ -27,7 +27,8 @@
 
 
 <!-- Edit Event Modal -->
-<div class="modal fade" id="edit_event_modal" tabindex="-1" aria-labelledby="editEventLabel" aria-hidden="true">
+<div class="modal fade" id="edit_event_modal" tabindex="-1" aria-labelledby="editEventLabel" aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header custom-header">
@@ -49,6 +50,15 @@
             <label for="edit_event_end_date" class="form-label">End Date</label>
             <input type="date" class="form-control onlydatepicker" id="edit_event_end_date" required>
           </div>
+          <div class="mb-3">
+            <label for="edit_event_type" class="form-label">Event Type</label>
+            <select class="form-control" id="edit_event_type" required>
+              <option value="" disabled selected>Select event type</option>
+              <option value="Personal">Personal</option>
+              <option value="Academic">Academic</option>
+              <option value="Sport">Sport</option>
+              <option value="Volunteering">Volunteering</option>
+            </select>
           <div class="mb-3">
             <label for="edit_event_description" class="form-label">Description</label>
             <textarea class="form-control" id="edit_event_description"></textarea>

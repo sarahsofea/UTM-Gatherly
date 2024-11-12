@@ -21,7 +21,7 @@
 
 <!-- Start popup dialog box -->
 <div class="modal fade" id="event_entry_modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-    aria-hidden="true">
+    aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,6 +54,21 @@
                                     <label for="event_end_date">Event end</label>
                                     <input type="date" name="event_end_date" id="event_end_date" 
                                         class="form-control onlydatepicker" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="event_type">Event type</label>
+                                    <select name="event_type" id="event_type" class="form-control" required>
+                                        <option value="" disabled selected>Select event type</option>
+                                        <option value="Personal">Personal</option>
+                                        <option value="Academic">Academic</option>
+                                        <option value="Entrepreneurship">Entrepreneurship</option>
+                                        <option value="Sport">Sport</option>
+                                        <option value="Volunteering">Volunteering</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

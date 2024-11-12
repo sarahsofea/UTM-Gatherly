@@ -1,5 +1,6 @@
 <!-- Event Details Modal -->
-<div class="modal fade" id="event_details_modal" tabindex="-1" role="dialog" aria-labelledby="eventDetailsLabel" aria-hidden="true">
+<div class="modal fade" id="event_details_modal" tabindex="-1" role="dialog" aria-labelledby="eventDetailsLabel" aria-hidden="true"
+data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <!-- Header with Event Title and Close Button -->
@@ -29,6 +30,11 @@
                             </div>
 
                             <div class="mb-3">
+                                <label class="form-label"><strong>Event Type:</strong></label>
+                                <p class="form-control-plaintext" id="event_type_display">[Event Type]</p>
+                            </div>
+
+                            <div class="mb-3">
                                 <label class="form-label"><strong>Description:</strong></label>
                                 <p class="form-control-plaintext" id="event_description_display">[Description]</p>
                             </div>
@@ -41,7 +47,6 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="edit_event()">Edit</button>
                 <button type="button" class="btn btn-danger" onclick="delete_event()">Delete</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

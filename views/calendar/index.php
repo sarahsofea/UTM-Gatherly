@@ -98,7 +98,7 @@
           }
         }
       ], 
-      eventColor: '#BF4342',
+      eventColor: '#A78A7F',
 
       eventClick: function(info) { //info=event yang show kat calendar
       document.getElementById("event_name_display").innerText = info.event.title;
@@ -113,6 +113,7 @@
       }
       
       document.getElementById("event_end_date_display").innerText = endDate ? endDate : '';
+      document.getElementById("event_type_display").innerText = info.event.extendedProps.type;
       document.getElementById("event_description_display").innerText = info.event.extendedProps.description;
 
       // Store event ID for edit and delete operations
@@ -131,8 +132,9 @@
     var event_name=$("#event_name").val();
     var event_start_date=$("#event_start_date").val();
     var event_end_date=$("#event_end_date").val();
+    var event_type=$("#event_type").val();
     var event_description=$("#event_description").val();
-    if(event_name=="" || event_start_date=="" || event_end_date=="" || event_description=="")
+    if(event_name=="" || event_start_date=="" || event_end_date=="" || event_type=="" || event_description=="")
     {
     alert("Please enter all required details.");
     return false;
@@ -204,6 +206,7 @@
             document.getElementById("view_event_name").textContent = data.title;
             document.getElementById("view_event_start_date").textContent = data.start;
             document.getElementById("view_event_end_date").textContent = data.end;
+            document.getElementById("view_event_type").textContent = data.type;
             document.getElementById("view_event_description").textContent = data.description;
 
             // Show the modal
@@ -235,6 +238,8 @@
             document.getElementById("edit_event_start_date").value = data.start_date;
             document.getElementById("edit_event_end_date").value = data.end_date;
             document.getElementById("edit_event_description").value = data.description;
+            const eventTypeDropdown = document.getElementById("edit_event_type");
+            eventTypeDropdown.value = data.event_type;
 
             // Show the edit event modal
             $('#edit_event_modal').modal('show');
@@ -251,7 +256,9 @@
     const eventName = document.getElementById("edit_event_name").value;
     const startDate = document.getElementById("edit_event_start_date").value;
     const endDate = document.getElementById("edit_event_end_date").value;
+    const eventType = document.getElementById("edit_event_type").value;
     const description = document.getElementById("edit_event_description").value;
+    
 
     fetch("<?= BASE_URL; ?>index.php?r=calendar/updateEvent", {
       method: "POST",
@@ -260,6 +267,7 @@
         event_name: eventName,
         start_date: startDate,
         end_date: endDate,
+        event_type: eventType,
         description: description
       })
     })

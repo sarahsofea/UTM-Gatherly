@@ -9,7 +9,7 @@ class CalendarController extends Controller
            $this->render('index');
     }
 
-    public function fetchEvent()
+    public function fetchEvent()//event showed in calendar
     {
         require_once ROOT_PATH . 'config/db.php';
 
@@ -26,6 +26,7 @@ class CalendarController extends Controller
                     'title' => $row['event_name'],
                     'start' => $row['start_date'],  // Adjust these to match your column names
                     'end' => date('Y-m-d', strtotime('+1day'.$row['end_date'])),
+                    'type' => $row['event_type'],
                     'description' => $row['description'] ?? '', // Optional additional fields
                 ];
             }
@@ -47,11 +48,12 @@ class CalendarController extends Controller
             $event_name = $_POST['event_name'];
             $start_date = $_POST['event_start_date'];
             $end_date = $_POST['event_end_date'];
+            $event_type = $_POST['event_type'];
             $description = $_POST['event_description'];
 
             // Insert data into the event table
-            $stmt = $conn->prepare("INSERT INTO event (event_name, start_date, end_date, description) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $event_name, $start_date, $end_date, $description);
+            $stmt = $conn->prepare("INSERT INTO event (event_name, start_date, end_date, event_type, description) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $event_name, $start_date, $end_date, $event_type, $description);
 
             if ($stmt->execute()) {
                 echo json_encode(["status" => "success", "message" => "Event created successfully"]);
@@ -90,7 +92,8 @@ class CalendarController extends Controller
         $conn->close();
     }
 
-    public function fetchSingleEvent() {
+    public function fetchSingleEvent()//event showed in modal
+    {
         require_once ROOT_PATH . 'config/db.php';
 
         // Decode the incoming JSON data and add debugging output
@@ -117,6 +120,7 @@ class CalendarController extends Controller
                 "event_name" => $eventData['event_name'],
                 "start_date" => $eventData['start_date'],
                 "end_date" => $eventData['end_date'],
+                "event_type" => $eventData['event_type'],
                 "description" => $eventData['description']
             ]);
         } else {
@@ -133,8 +137,8 @@ class CalendarController extends Controller
 
         $data = json_decode(file_get_contents("php://input"));
 
-        $stmt = $conn->prepare("UPDATE event SET event_name = ?, start_date = ?, end_date = ?, description = ? WHERE event_id = ?");
-        $stmt->bind_param("ssssi", $data->event_name, $data->start_date, $data->end_date, $data->description, $data->event_id);
+        $stmt = $conn->prepare("UPDATE event SET event_name = ?, start_date = ?, end_date = ?, event_type = ?, description = ? WHERE event_id = ?");
+        $stmt->bind_param("sssssi", $data->event_name, $data->start_date, $data->end_date, $data->event_type, $data->description, $data->event_id);
 
         if ($stmt->execute()) {
             echo json_encode(["status" => "success", "message" => "Event updated successfully"]);
