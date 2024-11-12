@@ -29,7 +29,7 @@
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="<?php echo BASE_URL; ?>index.php?r=site/index"
-                            class="nav-link px-2 text-secondary">Home</a></li>
+                            class="nav-link px-2 text-white">Home</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?r=calendar/index"
                             class="nav-link px-2 text-white">Calendar</a></li>
                 </ul>
