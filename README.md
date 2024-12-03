@@ -18,12 +18,25 @@ For further customization or to learn more about these tools, you can explore th
 ### Member 1: NurSyuhada
 
 #### Sprint 1:
-- [register.php](#) ([click me](#))
-- [logout.php](#)
-- [login.php](#)
-- [hash_password.php](#)
-- [hash_password.php](#)
-- [hash_password.php](#)
+<table>
+  <tr>
+    <th>register.php
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>login.php
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>logout.php
+      <th><a href="">click here</a>
+  </tr>
+
+  
+</table>
+
 
 
 ### Member 2: Farah Hazirah Nisha
