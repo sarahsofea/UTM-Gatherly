@@ -21,7 +21,7 @@ For further customization or to learn more about these tools, you can explore th
 <table>
   <tr>
     <th>register.php
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/register.php">click here</a>
   </tr>
 
   <tr>
