@@ -67,7 +67,7 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>CalendarController.php
       <th>Fetches and formats events from the database for FullCalendar's interface.
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/CalendarController.php">click here</a>
   </tr>
 
   <tr>
