@@ -78,26 +78,26 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>Controller.php
-      <th>
+      <th> Managing how views and layouts are rendered in the application.
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/core/Controller.php">click here</a>
   </tr>
 
   <tr>
     <th>Router.php
-      <th>
+      <th> To map incoming requests (URLs) to the appropriate controller and action in the MVC framework.
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/core/Router.php">click here</a>
-  </tr>
-
-  <tr>
-    <th>add_event.php
-      <th> Add event modal
-      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/add_event.php">click here</a>
   </tr>
 
   <tr>
     <th>index.php (Calendar index)
       <th> A FullCalendar-based event management interface
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/index.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>add_event.php
+      <th> Add event modal
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/add_event.php">click here</a>
   </tr>
 
   <tr>
@@ -128,12 +128,6 @@ For further customization or to learn more about these tools, you can explore th
     <th>main.php
       <th> Main template for rendering web pages in the "UTM Gatherly" platform.
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/main.php">click here</a>
-  </tr>
-
-  <tr>
-    <th>nav.php
-      <th>
-      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/nav.php">click here</a>
   </tr>
 
   <tr>
