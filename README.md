@@ -51,19 +51,19 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>db.php
-      <th>connect to database
+      <th>Connect to database
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/config/db.php">click here</a>
   </tr>
 
   <tr>
-    <th>login.php
-      <th>
+    <th>CalendarController.php
+      <th>Fetches and formats events from the database for FullCalendar's interface.
       <th><a href="">click here</a>
   </tr>
 
   <tr>
-    <th>logout.php
-      <th>
+    <th>SiteController.php
+      <th>A basic controller that manages rendering static pages
       <th><a href="">click here</a>
   </tr>
 
