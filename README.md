@@ -4,7 +4,7 @@ A website to manage events and clubs at UTM.
 
 ## Getting Started
 
-I created a website to help UTM students easily find clubs and events on campus. This project simplifies the process of exploring, organizing, and participating in UTM activities.
+We created a website to help UTM students easily find clubs and events on campus. This project simplifies the process of exploring, organizing, and participating in UTM activities.
 
 This website is built using:
 - A little template from [FullCalendar](https://fullcalendar.io/) for event management.
