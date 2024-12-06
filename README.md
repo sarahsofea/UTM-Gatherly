@@ -67,5 +67,76 @@ For further customization or to learn more about these tools, you can explore th
       <th><a href="">click here</a>
   </tr>
 
+  <tr>
+    <th>Controller.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>Router.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>add_event.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>index.php (Calendar index)
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>update_event.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>view_event.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+  
+  <tr>
+    <th>header.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>footer.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>main.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>nav.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>index.php (site)
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+<tr>
+    <th>index.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
   
 </table>
