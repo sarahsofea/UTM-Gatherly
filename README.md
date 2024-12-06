@@ -143,3 +143,27 @@ For further customization or to learn more about these tools, you can explore th
   </tr>
   
 </table>
+
+### Member 3: Nur Hafizah
+
+#### Sprint 1:
+<table>
+  <tr>
+    <th>File Name
+      <th>Description
+      <th>Nav to File</th>
+  </tr>
+
+</table>
+
+### Member 4: Sarah Sofea
+
+#### Sprint 1:
+<table>
+  <tr>
+    <th>File Name
+      <th>Description
+      <th>Nav to File</th>
+  </tr>
+
+</table>
