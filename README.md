@@ -44,9 +44,9 @@ For further customization or to learn more about these tools, you can explore th
 #### Sprint 1:
 <table>
   <tr>
-    <th>file name
-      <th>description
-      <th>>nav to file</th>
+    <th>File Name
+      <th>Description
+      <th>Nav to File</th>
   </tr>
 
   <tr>
