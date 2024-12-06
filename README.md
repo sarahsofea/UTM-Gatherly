@@ -27,16 +27,19 @@ For further customization or to learn more about these tools, you can explore th
   
   <tr>
     <th>register.php
+      <th>
       <th><a href="iteration 1/authentication (syuhada)/register.php">click here</a>
   </tr>
 
   <tr>
     <th>login.php
+      <th>
       <th><a href="">click here</a>
   </tr>
 
   <tr>
     <th>logout.php
+      <th>
       <th><a href="">click here</a>
   </tr>
 
