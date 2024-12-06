@@ -90,43 +90,43 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>add_event.php
-      <th>
+      <th> Add event modal
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/add_event.php">click here</a>
   </tr>
 
   <tr>
     <th>index.php (Calendar index)
-      <th>
+      <th> A FullCalendar-based event management interface
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/index.php">click here</a>
   </tr>
 
   <tr>
     <th>update_event.php
-      <th>
+      <th> Edit event modal
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/update_event.php">click here</a>
   </tr>
 
   <tr>
     <th>view_event.php
-      <th>
+      <th> View event modal
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/view_event.php">click here</a>
   </tr>
   
   <tr>
     <th>header.php
-      <th>
+      <th> UTM Gatherly interface's header
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/header.php">click here</a>
   </tr>
 
   <tr>
     <th>footer.php
-      <th>
+      <th> UTM Gatherly interface's footer
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/footer.php">click here</a>
   </tr>
 
   <tr>
     <th>main.php
-      <th>
+      <th> Main template for rendering web pages in the "UTM Gatherly" platform.
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/main.php">click here</a>
   </tr>
 
@@ -138,7 +138,7 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>index.php (site)
-      <th>
+      <th> Home interface
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/site/index.php">click here</a>
   </tr>
 
