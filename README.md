@@ -42,3 +42,24 @@ For further customization or to learn more about these tools, you can explore th
 ### Member 2: Farah Hazirah Nisha
 
 #### Sprint 1:
+<table>
+  <tr>
+    <th>db.php
+      <th>connect to database
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>login.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>logout.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+  
+</table>
