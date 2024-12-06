@@ -73,79 +73,79 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>SiteController.php
       <th>A basic controller that manages rendering static pages
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/SiteController.php">click here</a>
   </tr>
 
   <tr>
     <th>Controller.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/core/Controller.php">click here</a>
   </tr>
 
   <tr>
     <th>Router.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/core/Router.php">click here</a>
   </tr>
 
   <tr>
     <th>add_event.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/add_event.php">click here</a>
   </tr>
 
   <tr>
     <th>index.php (Calendar index)
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/index.php">click here</a>
   </tr>
 
   <tr>
     <th>update_event.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/update_event.php">click here</a>
   </tr>
 
   <tr>
     <th>view_event.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/view_event.php">click here</a>
   </tr>
   
   <tr>
     <th>header.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/header.php">click here</a>
   </tr>
 
   <tr>
     <th>footer.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/footer.php">click here</a>
   </tr>
 
   <tr>
     <th>main.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/main.php">click here</a>
   </tr>
 
   <tr>
     <th>nav.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/nav.php">click here</a>
   </tr>
 
   <tr>
     <th>index.php (site)
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/site/index.php">click here</a>
   </tr>
 
 <tr>
     <th>index.php
-      <th>
-      <th><a href="">click here</a>
+      <th>First execution
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/index.php">click here</a>
   </tr>
   
 </table>
