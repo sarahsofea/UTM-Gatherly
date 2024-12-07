@@ -166,4 +166,40 @@ For further customization or to learn more about these tools, you can explore th
       <th>Nav to File</th>
   </tr>
 
+  <tr>
+    <th>db.php
+      <th>
+      <th><a href="iteration 1/History and view (Sarah Sofea)/db.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>event.sql
+      <th>
+      <th><a href="iteration 1/History and view (Sarah Sofea)/event.sql">click here</a>
+  </tr>
+
+  <tr>
+    <th>eventhistory.php
+      <th>
+      <th><a href="iteration 1/History and view (Sarah Sofea)/eventhistory.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>eventsummary.php
+      <th>
+      <th><a href="iteration 1/History and view (Sarah Sofea)/eventsummary.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>style.css
+      <th>
+      <th><a href="iteration 1/History and view (Sarah Sofea)/style.css">click here</a>
+  </tr>
+
+  <tr>
+    <th>images
+      <th>
+      <th><a href="iteration 1/History and view (Sarah Sofea)/images">click here</a>
+  </tr>
+
 </table>
