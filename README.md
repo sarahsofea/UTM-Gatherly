@@ -34,49 +34,51 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>login.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/login.php">click here</a>
   </tr>
 
   <tr>
     <th>logout.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/logout.php">click here</a>
   </tr>
 
    <tr>
     <th>config.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/config.php">click here</a>
   </tr>
 
    <tr>
     <th>dashboard.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/dashboard.php
+">click here</a>
   </tr>
 
    <tr>
     <th>forgot_password.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/forgot_password.php
+">click here</a>
   </tr>
 
    <tr>
     <th>generate_hash.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/generate_hash.php">click here</a>
   </tr>
 
    <tr>
     <th>hash_password.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/hash_password.php">click here</a>
   </tr>
 
    <tr>
     <th>reset_password.php
       <th>
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/authentication (syuhada)/reset_password.php">click here</a>
   </tr>
 
   
