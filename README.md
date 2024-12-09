@@ -27,19 +27,19 @@ For further customization or to learn more about these tools, you can explore th
   
   <tr>
     <th>register.php
-      <th>
+      <th> student need to register first before login
       <th><a href="iteration 1/authentication (syuhada)/register.php">click here</a>
   </tr>
 
   <tr>
     <th>login.php
-      <th>
+      <th> student login into the website
       <th><a href="iteration 1/authentication (syuhada)/login.php">click here</a>
   </tr>
 
   <tr>
     <th>logout.php
-      <th>
+      <th> student logout after using the website
       <th><a href="iteration 1/authentication (syuhada)/logout.php">click here</a>
   </tr>
 
@@ -51,33 +51,33 @@ For further customization or to learn more about these tools, you can explore th
 
    <tr>
     <th>dashboard.php
-      <th>
+      <th> personalized dashboard for students
       <th><a href="iteration 1/authentication (syuhada)/dashboard.php
 ">click here</a>
   </tr>
 
    <tr>
     <th>forgot_password.php
-      <th>
+      <th> student forgot their password, reset using email and username
       <th><a href="iteration 1/authentication (syuhada)/forgot_password.php
 ">click here</a>
   </tr>
 
    <tr>
     <th>generate_hash.php
-      <th>
+      <th> generating hash password to ensure security
       <th><a href="iteration 1/authentication (syuhada)/generate_hash.php">click here</a>
   </tr>
 
    <tr>
     <th>hash_password.php
-      <th>
+      <th> 
       <th><a href="iteration 1/authentication (syuhada)/hash_password.php">click here</a>
   </tr>
 
    <tr>
     <th>reset_password.php
-      <th>
+      <th> get to reset their new password
       <th><a href="iteration 1/authentication (syuhada)/reset_password.php">click here</a>
   </tr>
 
