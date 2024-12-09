@@ -43,6 +43,42 @@ For further customization or to learn more about these tools, you can explore th
       <th><a href="">click here</a>
   </tr>
 
+   <tr>
+    <th>config.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+   <tr>
+    <th>dashboard.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+   <tr>
+    <th>forgot_password.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+   <tr>
+    <th>generate_hash.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+   <tr>
+    <th>hash_password.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
+   <tr>
+    <th>reset_password.php
+      <th>
+      <th><a href="">click here</a>
+  </tr>
+
   
 </table>
 
