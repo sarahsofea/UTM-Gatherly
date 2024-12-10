@@ -1,0 +1,453 @@
+ /* Define primary color */
+        :root {
+            --primary-color: #800000;        /* Dark red */
+            --secondary-color: #ffcccc;      /* Light red */
+            --white-color: #ffffff;          /* White */
+            --font-size-xxl: 3rem;
+            --font-size-l: 1.5rem;
+            --font-size-m: 1.2rem;
+            --font-weight--semibold: 600;
+            --font-weight--medium: 500;
+            --border--radius--m: 5px;
+            --max-width: 1200px;              /* Max width for the intro section */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            background-color: #E7D7C1;
+        }
+
+        .upcoming-events {
+            padding: 50px 0;
+            background-color: #E7D7C1;  /* Same background color for the events section */
+        }
+
+        .upcoming-events h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #FCB9B2;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card .card-title {
+            font-size: 1.5rem;
+            margin: 15px;
+            color: #333;
+        }
+
+        .card .card-text {
+            padding: 0 15px;
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            padding: 0 15px;
+            color: #777;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .card .btn-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .card .btn-secondary,
+        .card .btn-primary {
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .card .btn-primary {
+            background-color: var(--primary-color) !important;
+        }
+
+        .card .btn-secondary {
+            background-color: #b22222 !important;
+        }
+
+        .card .btn-secondary:hover,
+        .card .btn-primary:hover {
+            opacity: 0.8;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+            color: #aaa;
+            float: right;
+            padding: 12px 24px;
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight--medium);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Register Form Styling */
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .register-form .form-group {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .register-form label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+            align-self: flex-start;
+        }
+
+        .register-form input[type="text"],
+        .register-form input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .register-form input[type="text"]:focus,
+        .register-form input[type="email"]:focus {
+            border-color: var(--primary-color);
+        }
+
+        .register-form input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .register-form input[type="submit"]:hover {
+            background-color: #b22222;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 90%;
+            }
+
+            .register-form input[type="text"],
+            .register-form input[type="email"],
+            .register-form input[type="submit"] {
+                width: 100%;
+            }
+    }
+        /* Edit/Delete Event Form Styling */
+        #editModal .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #editModal h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #managerVerificationForm {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #managerVerificationForm .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        #managerVerificationForm label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        #managerVerificationForm input {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #managerVerificationForm input:focus {
+            border-color: var(--primary-color);
+        }
+
+        #managerVerificationForm button {
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        #managerVerificationForm button:hover {
+            background-color: #b22222;
+        }
+
+        #managerVerificationForm button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Add some margin to the close button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #b22222;
+        }
+
+        /* Add Responsive Styling */
+        @media (max-width: 768px) {
+            #editModal .modal-content {
+                padding: 20px;
+            }
+
+            #managerVerificationForm input,
+            #managerVerificationForm button {
+                font-size: 0.9rem;
+            }
+        }
+        /* Styling for Edit Icon */
+        .edit-icon {
+            font-size: 1.2rem;
+            color: #800000; /* Matches primary color */
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            text-align: right;
+        }
+        
+        .edit-icon:hover {
+            color: #b22222;
+        }
+
+        * Form Container */
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b22222;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #800000;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .form-container {
+        width: 80%;
+    }
+}
+/* Form Container */
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b22222;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #800000;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .form-container {
+        width: 80%;
+    }
+}
