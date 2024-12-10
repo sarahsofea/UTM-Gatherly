@@ -192,6 +192,102 @@ For further customization or to learn more about these tools, you can explore th
       <th>Nav to File</th>
   </tr>
 
+  <tr>
+    <th>db.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/db.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>club.sql
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/db/club.sql">click here</a>
+  </tr>
+
+  <tr>
+    <th>create_event.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/create_event.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>create_event.css
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/create_event.css">click here</a>
+  </tr>
+
+  <tr>
+    <th>edit_event.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/edit_event.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>event_manager.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/event_manager.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>fetchEvents.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/fetchEvents.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>index.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/index.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>index.css
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/index.css">click here</a>
+  </tr>
+
+  <tr>
+    <th>saveEvents.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/saveEvents.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>register.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/register.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>verify_manager.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/verify_manager.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>viewEvents.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewEvents.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>viewEvents.css
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewEvents.css">click here</a>
+  </tr>
+
+  <tr>
+    <th>viewClubs.php
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClubs.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>viewClubs.css
+      <th>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClubs.css">click here</a>
+  </tr>
+
 </table>
 
 ### Member 4: Sarah Sofea
