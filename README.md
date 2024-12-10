@@ -1,4 +1,4 @@
-# UTM_Gatherly 🧑🏻‍🎓
+# UTM Gatherly 🧑🏻‍🎓
 
 A website to manage events and clubs at UTM ✨
 
