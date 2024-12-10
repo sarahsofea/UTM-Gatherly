@@ -194,98 +194,68 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>db.php
-      <th>
+      <th>Connect to database
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/db.php">click here</a>
   </tr>
 
   <tr>
-    <th>club.sql
-      <th>
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/db/club.sql">click here</a>
-  </tr>
-
-  <tr>
     <th>create_event.php
-      <th>
+      <th>Create new event
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/create_event.php">click here</a>
   </tr>
 
   <tr>
-    <th>create_event.css
-      <th>
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/create_event.css">click here</a>
-  </tr>
-
-  <tr>
     <th>edit_event.php
-      <th>
+      <th>Owner edit existing event
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/edit_event.php">click here</a>
   </tr>
 
   <tr>
     <th>event_manager.php
-      <th>
+      <th>Event manager 
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/event_manager.php">click here</a>
   </tr>
 
   <tr>
+    <th>verify_manager.php
+      <th>Manager verification
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/verify_manager.php">click here</a>
+  </tr>
+
+  <tr>
     <th>fetchEvents.php
-      <th>
+      <th>Fetches and formats events from the database for Event's interface.
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/fetchEvents.php">click here</a>
   </tr>
 
   <tr>
     <th>index.php
-      <th>
+      <th>A Club Directory - based event management interface
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/index.php">click here</a>
   </tr>
 
   <tr>
-    <th>index.css
-      <th>
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/index.css">click here</a>
-  </tr>
-
-  <tr>
     <th>saveEvents.php
-      <th>
+      <th>Save the events in the database
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/saveEvents.php">click here</a>
   </tr>
 
   <tr>
     <th>register.php
-      <th>
+      <th>Student register as a participant
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/register.php">click here</a>
   </tr>
 
   <tr>
-    <th>verify_manager.php
-      <th>
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/verify_manager.php">click here</a>
-  </tr>
-
-  <tr>
     <th>viewEvents.php
-      <th>
+      <th>View EVents details
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewEvents.php">click here</a>
   </tr>
 
   <tr>
-    <th>viewEvents.css
-      <th>
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewEvents.css">click here</a>
-  </tr>
-
-  <tr>
     <th>viewClubs.php
-      <th>
+      <th>View Clubs details
       <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClubs.php">click here</a>
-  </tr>
-
-  <tr>
-    <th>viewClubs.css
-      <th>
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClubs.css">click here</a>
   </tr>
 
 </table>
