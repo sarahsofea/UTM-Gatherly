@@ -18,7 +18,7 @@ For further customization or to learn more about these tools, you can explore th
 ## SPRINT 1
 
 ### Member 1: NurSyuhada
-
+#### Sprint 1:
 <table>
   <tr>
     <th>File Name
