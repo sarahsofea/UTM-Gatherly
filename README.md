@@ -320,6 +320,7 @@ For further customization or to learn more about these tools, you can explore th
       <th>Nav to File</th>
   </tr>
 
+</table>
 
 ### Member 2: Farah Hazirah
 
@@ -329,6 +330,7 @@ For further customization or to learn more about these tools, you can explore th
       <th>Description
       <th>Nav to File</th>
   </tr>
+</table>
 
   ### Member 3: Nur Hafizah
 
@@ -338,6 +340,7 @@ For further customization or to learn more about these tools, you can explore th
       <th>Description
       <th>Nav to File</th>
   </tr>
+</table>
 
   ### Member 4: Sarah Sofea
 
@@ -348,6 +351,6 @@ For further customization or to learn more about these tools, you can explore th
       <th>Nav to File</th>
   </tr>
   
-  
+  </table>
 
 ## SPRINT 3
