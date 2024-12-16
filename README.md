@@ -320,6 +320,24 @@ For further customization or to learn more about these tools, you can explore th
       <th>Nav to File</th>
   </tr>
 
+  <tr>
+    <th>profile.php
+      <th> View user profile
+      <th><a href=""></a>
+  </tr>
+
+   <tr>
+    <th>create_profile.php
+      <th> Creating user profile
+      <th><a href=""></a>
+  </tr>
+
+   <tr>
+    <th>update_profile
+      <th> Updating user profile
+      <th><a href=""></a>
+  </tr>
+
 </table>
 
 ### Member 2: Farah Hazirah
