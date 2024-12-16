@@ -330,6 +330,24 @@ For further customization or to learn more about these tools, you can explore th
       <th>Description
       <th>Nav to File</th>
   </tr>
+
+  <tr>
+    <th>index.php (Calendar index)
+      <th> A FullCalendar-based event management interface
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>CalendarController.php
+      <th>Fetches and formats events from the database for FullCalendar's interface.
+      <th><a href="">click here</a>
+  </tr>
+
+  <tr>
+    <th>filter.php
+      <th>Fetches and formats events from the database for FullCalendar's interface.
+      <th><a href="">click here</a>
+  </tr>
 </table>
 
   ### Member 3: Nur Hafizah
