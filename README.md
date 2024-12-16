@@ -345,8 +345,8 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>filter.php
-      <th>Fetches and formats events from the database for FullCalendar's interface.
-      <th><a href="">click here</a>
+      <th>Filters events based on event type.
+      <th><a href="iteration 2/Filtered Events (Farah Hazirah)/filter.php">click here</a>
   </tr>
 </table>
 
