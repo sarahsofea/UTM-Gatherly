@@ -1,10 +1,8 @@
 <?php
 include 'db_connection.php';
 
-// Mock user ID (since login is ignored here)
 $user_id = 1;
 
-// Fetch user profile
 $query = "SELECT * FROM user_profiles WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $user_id);
@@ -26,7 +24,7 @@ if (!$user_profile) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome CDN for icons -->
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -45,7 +43,6 @@ if (!$user_profile) {
         <div><?php echo htmlspecialchars($user_profile['phone_number']); ?></div>
     </div>
     
-    <!-- Styled button for updating profile -->
     <a href="update_profile.php" class="action-btn">
         <i class="fas fa-edit"></i> Update Profile
     </a>
