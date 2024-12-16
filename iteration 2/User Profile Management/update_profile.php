@@ -1,7 +1,7 @@
 <?php
 include 'db_connection.php';
 
-// Mock user ID (since login is ignored here)
+
 $user_id = 1;
 
 // Fetch user profile
@@ -12,7 +12,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user_profile = $result->fetch_assoc();
 
-// Handle form submission for updating profile
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $update_stmt->bind_param("sssi", $name, $email, $phone_number, $user_id);
     $update_stmt->execute();
 
-    // Redirect after update
     header("Location: profile.php");
     exit();
 }
@@ -36,14 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome CDN for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="profile-container">
         <h1>Update Profile</h1>
 
-        <!-- Update Profile Form -->
         <form method="POST" action="update_profile.php">
             <div class="profile-row">
                 <div class="label"><i class="fas fa-user"></i> Name:</div>
@@ -60,7 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" name="phone_number" value="<?php echo htmlspecialchars($user_profile['phone_number']); ?>" required>
             </div>
 
-            <!-- Update Button -->
             <div class="profile-row">
                 <button type="submit" class="update-btn"><i class="fas fa-save"></i> Save Changes</button>
             </div>
