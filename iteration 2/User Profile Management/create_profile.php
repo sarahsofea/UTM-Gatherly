@@ -1,11 +1,11 @@
 <?php
 session_start();
-include 'db_connection.php'; // your database connection file
+include 'db_connection.php'; 
 
-// Check if the user is logged in (just a placeholder, no actual login validation in this case)
+
 if (!isset($_SESSION['user_id'])) {
-    // If no session, redirect to some login or a dummy user ID for testing
-    $_SESSION['user_id'] = 1; // Assuming user_id is 1 for testing purposes
+  
+    $_SESSION['user_id'] = 1;
 }
 
 $user_id = $_SESSION['user_id'];
@@ -24,7 +24,6 @@ if ($user_profile) {
     exit();
 }
 
-// Handle profile creation form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
