@@ -334,13 +334,13 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>index.php (Calendar index)
       <th> A FullCalendar-based event management interface
-      <th><a href="">click here</a>
+      <th><a href=""></a>
   </tr>
 
   <tr>
     <th>CalendarController.php
       <th>Fetches and formats events from the database for FullCalendar's interface.
-      <th><a href="">click here</a>
+      <th><a href=""></a>
   </tr>
 
   <tr>
