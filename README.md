@@ -323,19 +323,19 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>profile.php
       <th> View user profile
-      <th><a href=""></a>
+      <th><a href="iteration 2/User Profile Management/profile.php"></a>
   </tr>
 
    <tr>
     <th>create_profile.php
       <th> Creating user profile
-      <th><a href=""></a>
+      <th><a href="iteration 2/User Profile Management/create_profile.php"></a>
   </tr>
 
    <tr>
     <th>update_profile
       <th> Updating user profile
-      <th><a href=""></a>
+      <th><a href="iteration 2/User Profile Management/update_profile.php"></a>
   </tr>
 
 </table>
