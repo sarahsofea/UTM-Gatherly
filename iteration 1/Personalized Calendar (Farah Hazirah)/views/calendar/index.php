@@ -2,18 +2,17 @@
   <div class="col-md-9">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Calendar</h5>
+        <h5 class="card-title"> <i class="fa-solid fa-calendar-days"></i> Calendar</h5>
         <hr>
         <div id="calendar" style="height: 800px;"></div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-3">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Filter</h5>
-        <hr>
+    <div class="col-md-3">
+        <!-- Filter Event views -->
+        <?php include 'filter.php'; ?>
+        <!-- End Filter Event Form -->
       </div>
     </div>
   </div>
@@ -91,12 +90,25 @@
       // Fetch events from the database
       eventSources: [
         {
-          url: fetchUrl, // URL to your PHP endpoint
-          method: 'GET',
-          failure: function (error) {
-            console.error('Error fetching events:', error);
-          }
-        }
+          id: 'Personal',
+          url: '<?= BASE_URL; ?>index.php?r=calendar/fetchEvent&type=Personal'
+        },
+        {
+          id: 'Academic',
+          url: '<?= BASE_URL; ?>index.php?r=calendar/fetchEvent&type=Academic'
+        },
+        {
+          id: 'Entrepreneurship',
+          url: '<?= BASE_URL; ?>index.php?r=calendar/fetchEvent&type=Entrepreneurship'
+        },
+        {
+          id: 'Sport',
+          url: '<?= BASE_URL; ?>index.php?r=calendar/fetchEvent&type=Sport'
+        },
+        {
+          id: 'Volunteering',
+          url: '<?= BASE_URL; ?>index.php?r=calendar/fetchEvent&type=Volunteering'
+        },
       ], 
       eventColor: '#A78A7F',
 
@@ -126,6 +138,35 @@
     });
     
     calendar.render();
+
+    //filter 
+    $('#filterForm input[name="eventType"]').change(function () {
+      const checkbox = $(this); // The checkbox element that triggered the event
+      const eventId = checkbox.val(); // Get the id of the checkbox (e.g., "personal")
+
+      if (checkbox.is(":checked")) {
+        // Add the event source when the checkbox is checked
+        calendar.addEventSource({
+          id: eventId,
+          url: `<?= BASE_URL; ?>index.php?r=calendar/fetchEvent&type=${eventId}`, // Pass eventId as a parameter
+          success: function () {
+            console.log(`Event source for ${eventId} added.`);
+          },
+          failure: function (error) {
+            console.error(`Failed to add event source for ${eventId}:`, error);
+          }
+        });
+      } else {
+        // Remove the event source when the checkbox is unchecked
+        const source = calendar.getEventSourceById(eventId);
+        if (source) {
+          source.remove(); // Remove the event source with the matching ID
+          console.log(`Event source for ${eventId} removed.`);
+        } else {
+          console.warn(`Event source with ID "${eventId}" not found.`);
+        }
+      }
+    });
   });
 
   function save_event() {
