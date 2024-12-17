@@ -352,13 +352,13 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>index.php (Calendar index)
-      <th> A FullCalendar-based event management interface (update in iteration 1)
-      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/index.php"></a>
+      <th> Updated a FullCalendar-based event management interface
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/index.php">Click here</a>
   </tr>
 
   <tr>
     <th>CalendarController.php
-      <th>Fetches and formats events from the database for FullCalendar's interface (update in iteration 1) 
+      <th> Updated fetches and formats events from the database for FullCalendar's interface 
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/CalendarController.php">Click here</a>
   </tr>
 
