@@ -386,7 +386,31 @@ For further customization or to learn more about these tools, you can explore th
       <th>Description
       <th>Nav to File</th>
   </tr>
-  
-  </table>
+
+  <tr>
+    <th>event.sql
+      <th> Updated History and Reviews database
+      <th><a href="iteration 2/Event Feedback (Sarah Sofea)/event.sql">click here</a>
+  </tr>
+
+  <tr>
+    <th>eventsummary.php
+      <th> Updated code for Event Summary Page
+      <th><a href="iteration 2/Event Feedback (Sarah Sofea)/eventsummary.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>style.css
+      <th> Updated style use for History and Reviews subsytems
+      <th><a href="iteration 2/Event Feedback (Sarah Sofea)/style.css">click here</a>
+  </tr>
+
+  <tr>
+    <th>submitreview.php
+      <th> Code for Review form page
+      <th><a href="iteration 2/Event Feedback (Sarah Sofea)/submitreview.php">click here</a>
+  </tr>
+
+</table>
 
 ## SPRINT 3
