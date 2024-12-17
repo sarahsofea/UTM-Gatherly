@@ -1,0 +1,180 @@
+/* Header Styles */
+.header {
+    background: linear-gradient(to right, #4b0000, #800000, #b22222) !important;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.header-logo img {
+    width: 50px; /* Logo size */
+    height: 40px;
+}
+.header h1 {
+    font-size: 1.5rem; /* Title size */
+    margin: 0;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.profile img {
+    width: 40px; /* Profile picture size */
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Content Section */
+.content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Event Card Styles */
+/* Larger size for the event cover photo */
+.event-image {
+    flex: 0 0 280px; /* Increase width */
+    margin-right: 20px;
+    width: 280px; /* New width */
+    height: 180px; /* New height */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Adjusting the event card layout */
+.event-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px; /* Reduced space between cards */
+    padding: 10px; /* Reduced padding */
+    border: 1px solid #ccc; /* Keep the border for clarity */
+    border-radius: 5px;
+    text-decoration: none;
+    color: inherit;
+    background-color: #f9f9f9;
+}
+
+/* Ensuring event information adjusts accordingly */
+.event-info {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.event-name {
+    font-size: 1.75rem; /* Slightly larger title */
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.event-date {
+    color: #a30000;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event-description {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+
+/* New Styles for Event Summary Page */
+.event-details {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.event-image-large {
+    flex: 0 0 300px; /* Fixed width for consistent image size */
+    height: 200px; /* Fixed height */
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.event-info {
+    flex: 1;
+}
+.event-category {
+    color: #0056b3;
+    font-style: italic;
+}
+.event-organizer {
+    color: #555;
+    margin-top: 5px;
+}
+.event-gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.event-gallery img,
+.event-gallery video {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.event-gallery img:hover,
+.event-gallery video:hover {
+    border-color: #a30000;
+}
+
+/* Review Card Styles */
+.review-card {
+    border: 1px solid #e2e6ea;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+}
+.review-card h5 {
+    margin: 0 0 5px;
+    color: #333;
+}
+.review-card p {
+    margin: 0 0 5px;
+}
+.review-card small {
+    color: #6c757d;
+}
+
+/* Search Form Styles */
+.input-group {
+    margin-bottom: 20px;
+}
+.input-group .form-control {
+    border-radius: 0;
+}
+.input-group .btn {
+    border-radius: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .event-details {
+        flex-direction: column;
+        align-items: center;
+    }
+    .event-image-large {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .event-gallery {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+
