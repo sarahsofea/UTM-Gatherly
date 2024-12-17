@@ -60,6 +60,7 @@
               <option value="Sport">Sport</option>
               <option value="Volunteering">Volunteering</option>
             </select>
+          </div>
           <div class="mb-3">
             <label for="edit_event_description" class="form-label">Description</label>
             <textarea class="form-control" id="edit_event_description"></textarea>
