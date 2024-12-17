@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit">Register</button>
         </form>
         
-        <!-- Display the success message -->
+        <!-- Display success message -->
         <p class="success">
             <?php if ($success): ?>
                 <?php echo $success; ?>
