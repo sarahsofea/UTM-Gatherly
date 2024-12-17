@@ -13,21 +13,37 @@ class CalendarController extends Controller
     {
         require_once ROOT_PATH . 'config/db.php';
 
-        $sql = "SELECT * FROM event";
-        $result = $conn->query($sql);
+        $type = isset($_GET['type']) ? $_GET['type'] : null;
+        
         $event = [];
+        
+        $colour = ['Personal' => '#42a5f5', 'Academic' => '#ec407a', 'Sport' => '#ffb300', 'Entrepreneurship' => '#66bb6a', 'Volunteering' => '#ff7043'];
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                // Adjust the array to match FullCalendar's event structure
-                $event[] = [
-                    'id' => $row['event_id'],  
-                    'title' => $row['event_name'],
-                    'start' => $row['start_date'],  // Adjust these to match your column names
-                    'end' => $row['end_date'],
-                    'description' => $row['description'] ?? '', // Optional additional fields
-                ];
-            }
+       if ($type !== null) {
+            $sql = "SELECT * FROM event WHERE event_type = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("s", $type); 
+            $stmt->execute();
+            $result = $stmt->get_result();
+           
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $event[] = [
+                            'id' => $row['event_id'],  
+                            'title' => $row['event_name'],
+                            'start' => $row['start_date'],  // Adjust these to match your column names
+                            'end' => date('Y-m-d', strtotime('+1 day', strtotime($row['end_date']))), 
+                            'description' => $row['description'] ?? '', // Optional additional fields
+                            'backgroundColor' => $colour[$type],
+                        ];
+                    }
+                }
+           $stmt->close();
+        } else {
+            // If no type is provided, return an error message
+            echo json_encode(['error' => 'Type parameter is required.']);
+            $conn->close();
+            exit;
         }
         
         $conn->close();
