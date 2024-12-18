@@ -377,6 +377,19 @@ For further customization or to learn more about these tools, you can explore th
       <th>Description
       <th>Nav to File</th>
   </tr>
+
+  <tr>
+    <th>viewEvents.php
+      <th>View EVents details
+      <th><a href="iteration 2/Filter Events View/viewEvents.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>fetchEvents.php
+      <th>Fetch events based on filtered options
+      <th><a href="iteration 2/Filter Events View/fetchEvents.php">click here</a>
+  </tr>
+  
 </table>
 
   ### Member 4: Sarah Sofea
