@@ -66,6 +66,7 @@
 
 
 
+
 <script>
   var fetchUrl = "<?= BASE_URL; ?>index.php?r=calendar/fetchEvent";
   var createEventUrl = "<?= BASE_URL; ?>index.php?r=calendar/createEvent";
@@ -112,29 +113,55 @@
       ], 
       eventColor: '#A78A7F',
 
+        // Customize event rendering
+      eventContent: function (arg) {
+        // Create a container for the event content
+        let eventContent = document.createElement('div');
+
+        // Add the event title
+        let titleSpan = document.createElement('span');
+        titleSpan.textContent = arg.event.title;
+
+        // Append the title to the container
+        eventContent.appendChild(titleSpan);
+
+        // Add a bell icon if the reminder is "Yes"
+        if (arg.event.extendedProps.reminder_checkbox === "Yes") {
+          let bellIcon = document.createElement('i');
+          bellIcon.className = 'fa fa-bell'; // FontAwesome bell icon
+          bellIcon.style.marginLeft = '5px'; // Add spacing
+          eventContent.appendChild(bellIcon);
+        }
+
+        // Return the custom content
+        return { domNodes: [eventContent] };
+      },
+
       eventClick: function(info) { //info=event yang show kat calendar
-      document.getElementById("event_name_display").innerText = info.event.title;
+        document.getElementById("event_name_display").innerText = info.event.title;
 
-      var startDate = moment(info.event.start).format('DD/MM/YYYY');
-      document.getElementById("event_start_date_display").innerText = startDate;
+        var startDate = moment(info.event.start).format('DD/MM/YYYY');
+        document.getElementById("event_start_date_display").innerText = startDate;
 
-      let endDate = info.event.end ? new Date(info.event.end) : null;
-      if (endDate) {
-        endDate.setDate(endDate.getDate() - 1); // Add one day
-        endDate = moment(endDate).format('DD/MM/YYYY'); 
-      }
-      
-      document.getElementById("event_end_date_display").innerText = endDate ? endDate : '';
-      document.getElementById("event_type_display").innerText = info.event.extendedProps.type;
-      document.getElementById("event_description_display").innerText = info.event.extendedProps.description;
-
-      // Store event ID for edit and delete operations
-      document.getElementById("event_details_modal").dataset.eventId = info.event.id;
-
-      // Show the event details modal
-      $('#event_details_modal').modal('show');
+        let endDate = info.event.end ? new Date(info.event.end) : null;
+        if (endDate) {
+          endDate.setDate(endDate.getDate() - 1); // Add one day
+          endDate = moment(endDate).format('DD/MM/YYYY'); 
+        }
         
-    }
+        document.getElementById("event_end_date_display").innerText = endDate ? endDate : '';
+        document.getElementById("event_type_display").innerText = info.event.extendedProps.type;
+        document.getElementById("event_description_display").innerText = info.event.extendedProps.description;
+        document.getElementById("event_reminder_checkbox").innerText = info.event.extendedProps.reminder_checkbox;
+        document.getElementById("event_reminder_time").innerText = info.event.extendedProps.reminder_time;
+
+        // Store event ID for edit and delete operations
+        document.getElementById("event_details_modal").dataset.eventId = info.event.id;
+
+        // Show the event details modal
+        $('#event_details_modal').modal('show');
+          
+      }
     });
     
     calendar.render();
@@ -170,40 +197,68 @@
   });
 
   function save_event() {
-    var event_name=$("#event_name").val();
-    var event_start_date=$("#event_start_date").val();
-    var event_end_date=$("#event_end_date").val();
-    var event_type=$("#event_type").val();
-    var event_description=$("#event_description").val();
-    if(event_name=="" || event_start_date=="" || event_end_date=="" || event_type=="" || event_description=="")
-    {
-    alert("Please enter all required details.");
-    return false;
-    }
-    var formData = new FormData(document.getElementById("eventForm"));
+    var event_name = $("#event_name").val();
+    var event_start_date = $("#event_start_date").val();
+    var event_end_date = $("#event_end_date").val();
+    var event_type = $("#event_type").val();
+    var event_description = $("#event_description").val();
+    var set_reminder = $("#set_reminder").is(":checked") ? "Yes" : "No";
+    var event_time_reminder = set_reminder === "Yes" ? $("#reminder_time").val() : "0"; // Default to "0" if reminder not set
 
-    fetch("<?= BASE_URL; ?>index.php?r=calendar/createEvent", {
-      method: "POST",
-      body: formData,
+    if (!event_name || !event_start_date || !event_end_date || !event_type || !event_description) {
+        alert("Please enter all required details.");
+        return false;
+    }
+
+    if (new Date(event_start_date) > new Date(event_end_date)) {
+        alert("The start date cannot be later than the end date.");
+        return false;
+    }
+
+    var formData = new FormData();
+    formData.append("event_name", event_name);
+    formData.append("event_start_date", event_start_date);
+    formData.append("event_end_date", event_end_date);
+    formData.append("event_type", event_type);
+    formData.append("event_description", event_description);
+    formData.append("set_reminder", set_reminder);
+    formData.append("reminder_time", event_time_reminder);
+
+    fetch('<?= BASE_URL; ?>index.php?r=calendar/createEvent', {
+        method: "POST",
+        body: formData,
     })
-      .then(response => response.json())
-      .then(data => {
-        if (data.status === "success") {
-          // Close the modal and refresh the calendar to show the new event
-          $('#event_entry_modal').modal('hide');
-          alert(data.message);
-          location.reload();
-          // calendar.refetchEvents();
-          console.log("Events refetched successfully"); // Debug line // Refresh the events in FullCalendar
-        } else {
-          alert(data.message);
-        }
-      })
-      .catch(error => {
-        console.error("Error:", error);
-        alert("An error occurred while saving the event.");
-      });
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                $('#event_entry_modal').modal('hide');
+                alert(data.message);
+                location.reload();
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while saving the event. Please try again.");
+        });
+    }
+
+
+  // Toggle the visibility of the Reminder Time dropdown
+  function toggleReminder() {
+
+  const reminderCheckbox = document.getElementById("set_reminder");
+  const reminderContainer = document.getElementById("reminder_time_container");
+
+    if (reminderCheckbox.checked) {
+      reminderCheckbox.value = reminderCheckbox.checked ? 'Yes' : 'No';
+      reminderContainer.classList.remove("hidden");
+    } else {
+      reminderContainer.classList.add("hidden");
+    }
   }
+
 
   function delete_event() {
 
@@ -249,6 +304,7 @@
             document.getElementById("view_event_end_date").textContent = data.end;
             document.getElementById("view_event_type").textContent = data.type;
             document.getElementById("view_event_description").textContent = data.description;
+            // document.getElementById("view_event_time_reminder").textContent = data.description;
 
             // Show the modal
             $('#event_details_modal').modal('show');
@@ -281,6 +337,10 @@
             document.getElementById("edit_event_description").value = data.description;
             const eventTypeDropdown = document.getElementById("edit_event_type");
             eventTypeDropdown.value = data.event_type;
+            // Set checkbox state based on data.reminder_checkbox
+            const reminderCheckbox = document.getElementById("edit_set_reminder");
+            reminderCheckbox.checked = data.reminder_checkbox === "Yes";
+            document.getElementById("edit_event_reminder_time").value = data.reminder_time;
 
             // Show the edit event modal
             $('#edit_event_modal').modal('show');
@@ -291,38 +351,54 @@
     .catch(error => console.error("Error fetching event data:", error));
 }
 
-  function update_event() {
+    function update_event() {
+        const eventId = document.getElementById("edit_event_id").value;
+        const eventName = document.getElementById("edit_event_name").value;
+        const startDate = document.getElementById("edit_event_start_date").value;
+        const endDate = document.getElementById("edit_event_end_date").value;
+        const eventType = document.getElementById("edit_event_type").value;
+        const description = document.getElementById("edit_event_description").value;
+        const reminderTime = document.getElementById("edit_set_reminder").checked
+          ? document.getElementById("edit_event_reminder_time").value
+          : '0';
+        const reminderCheckbox = document.getElementById("edit_set_reminder").checked ? 'Yes' : 'No';
+      
 
-    const eventId = document.getElementById("edit_event_id").value;
-    const eventName = document.getElementById("edit_event_name").value;
-    const startDate = document.getElementById("edit_event_start_date").value;
-    const endDate = document.getElementById("edit_event_end_date").value;
-    const eventType = document.getElementById("edit_event_type").value;
-    const description = document.getElementById("edit_event_description").value;
-    
+        // Ensure all required fields are filled
+        if (!eventName || !startDate || !endDate || !eventType) {
+            alert("Please fill all required fields.");
+            return;
+        }
 
-    fetch("<?= BASE_URL; ?>index.php?r=calendar/updateEvent", {
-      method: "POST",
-      body: JSON.stringify({
-        event_id: eventId,
-        event_name: eventName,
-        start_date: startDate,
-        end_date: endDate,
-        event_type: eventType,
-        description: description
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === "success") {
-        alert(data.message);
-        $('#edit_event_modal').modal('hide');
-        location.reload(); // Reload calendar to reflect changes
-      } else {
-        alert(data.message);
-      }
-    })
-    .catch(error => console.error("Error updating event:", error));
-  }
+        fetch("<?= BASE_URL; ?>index.php?r=calendar/updateEvent", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            event_id: eventId,
+            event_name: eventName,
+            start_date: startDate,
+            end_date: endDate,
+            event_type: eventType,
+            description: description,
+            reminder_time: reminderTime,
+            reminder_checkbox: reminderCheckbox,
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === "success") {
+            alert(data.message);
+            $('#edit_event_modal').modal('hide');
+            location.reload(); // Reload calendar to reflect changes
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(error => console.error("Error updating event:", error));
+    }
+
+
 </script>
 
