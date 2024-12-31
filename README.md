@@ -441,13 +441,13 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>CalendarController.php
-      <th> 
+      <th> Updated fetches and formats events from the database for FullCalendar's interface
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/CalendarController.php">Click here</a>
   </tr>
 
   <tr>
     <th>SiteController.php
-      <th> 
+      <th> Updated a basic controller that manages rendering static pages and fetch reminder notifications database 
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/SiteController.php">Click here</a>
   </tr>
 
@@ -471,25 +471,25 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>add_event.php
-      <th> 
+      <th> Updated add event modal
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/add_event.php">Click here</a>
   </tr>
 
   <tr>
     <th>update_event.php 
-      <th> 
+      <th> Updated edit event modal
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/update_event.php">Click here</a>
   </tr>
 
   <tr>
-    <th>view_event.php (Calendar index)
-      <th> 
+    <th>view_event.php 
+      <th> Updated view event modal
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/view_event.php">Click here</a>
   </tr>
 
   <tr>
     <th>header.php 
-      <th> 
+      <th> Updated UTM Gatherly interface's header (Reminder Notifications) 
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/index.php">Click here</a>
   </tr>
 
