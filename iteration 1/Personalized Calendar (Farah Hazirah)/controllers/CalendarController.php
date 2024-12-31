@@ -6,48 +6,64 @@ class CalendarController extends Controller
 
     public function index()
     {
-           $this->render('index');
+        require_once ROOT_PATH . 'config/db.php';
+        $sql = "SELECT * FROM reminder_type";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $reminderType = $stmt->get_result();
+
+        $this->render('index', array('reminderType'=>$reminderType));
     }
 
     public function fetchEvent()//event showed in calendar
     {
         require_once ROOT_PATH . 'config/db.php';
 
+        // Retrieve the type parameter
         $type = isset($_GET['type']) ? $_GET['type'] : null;
-        
+
+        // Initialize an empty array for events
         $event = [];
-        
+
         $colour = ['Personal' => '#42a5f5', 'Academic' => '#ec407a', 'Sport' => '#ffb300', 'Entrepreneurship' => '#66bb6a', 'Volunteering' => '#ff7043'];
 
-       if ($type !== null) {
+        // Check if type is provided
+        if ($type !== null) {
+            // Prepare the SQL query to filter by event_type
             $sql = "SELECT * FROM event WHERE event_type = ?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $type); 
+            $stmt->bind_param("s", $type); // Bind the type parameter to the query
             $stmt->execute();
             $result = $stmt->get_result();
-           
+
+            // Fetch the results and format them for FullCalendar
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $event[] = [
-                            'id' => $row['event_id'],  
-                            'title' => $row['event_name'],
-                            'start' => $row['start_date'],  // Adjust these to match your column names
-                            'end' => date('Y-m-d', strtotime('+1 day', strtotime($row['end_date']))), 
-                            'description' => $row['description'] ?? '', // Optional additional fields
-                            'backgroundColor' => $colour[$type],
-                        ];
-                    }
+                        'id' => $row['event_id'], // Unique identifier for the event
+                        'title' => $row['event_name'], // Event title
+                        'start' => $row['start_date'], // Start date of the event
+                        'end' => date('Y-m-d', strtotime('+1 day', strtotime($row['end_date']))), // Adjusted end date
+                        'type' => $row['event_type'], // Event type
+                        'description' => $row['description'] ?? '', 
+                        'reminder_checkbox' => $row['reminder_checkbox'],
+                        'reminder_time' => $row['reminder_time'],
+                        'backgroundColor' => $colour[$type],
+                    ];
                 }
-           $stmt->close();
+            }
+            $stmt->close();
         } else {
             // If no type is provided, return an error message
             echo json_encode(['error' => 'Type parameter is required.']);
             $conn->close();
             exit;
         }
-        
+
+        // Close the database connection
         $conn->close();
 
+        // Return the JSON response
         header('Content-Type: application/json');
         echo json_encode($event);
     }
@@ -64,11 +80,14 @@ class CalendarController extends Controller
             $end_date = $_POST['event_end_date'];
             $event_type = $_POST['event_type'];
             $description = $_POST['event_description'];
+            $reminder_time = $_POST['reminder_time'];
+            $set_reminder = $_POST['set_reminder'] ?? 'No'; // Default to 'No' if not set
 
-            // Insert data into the event table
-            $stmt = $conn->prepare("INSERT INTO event (event_name, start_date, end_date, event_type, description) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $event_name, $start_date, $end_date, $event_type, $description);
+            $reminder_time = isset($_POST['reminder_time']) && $_POST['set_reminder'] === 'Yes' ? $_POST['reminder_time'] : '0';
+            $set_reminder = isset($_POST['set_reminder']) && $_POST['set_reminder'] === 'Yes' ? 'Yes' : 'No';
 
+            $stmt = $conn->prepare("INSERT INTO event (event_name, start_date, end_date, event_type, description, reminder_checkbox, reminder_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssss", $event_name, $start_date, $end_date, $event_type, $description, $set_reminder, $reminder_time);
             if ($stmt->execute()) {
                 echo json_encode(["status" => "success", "message" => "Event created successfully"]);
             } else {
@@ -76,6 +95,8 @@ class CalendarController extends Controller
             }
 
             $stmt->close();
+        } else {
+            echo json_encode(["status" => "error", "message" => "Invalid request method."]);
         }
         $conn->close();
     }
@@ -119,6 +140,7 @@ class CalendarController extends Controller
             return;
         }
 
+
         $event_id = $data->event_id;
 
         $stmt = $conn->prepare("SELECT * FROM event WHERE event_id = ?");
@@ -135,7 +157,9 @@ class CalendarController extends Controller
                 "start_date" => $eventData['start_date'],
                 "end_date" => $eventData['end_date'],
                 "event_type" => $eventData['event_type'],
-                "description" => $eventData['description']
+                "description" => $eventData['description'],
+                "reminder_time" => $eventData['reminder_time'],
+                "reminder_checkbox" => $eventData['reminder_checkbox'],
             ]);
         } else {
             echo json_encode(["status" => "error", "message" => "Event not found"]);
@@ -151,8 +175,8 @@ class CalendarController extends Controller
 
         $data = json_decode(file_get_contents("php://input"));
 
-        $stmt = $conn->prepare("UPDATE event SET event_name = ?, start_date = ?, end_date = ?, event_type = ?, description = ? WHERE event_id = ?");
-        $stmt->bind_param("sssssi", $data->event_name, $data->start_date, $data->end_date, $data->event_type, $data->description, $data->event_id);
+        $stmt = $conn->prepare("UPDATE event SET event_name = ?, start_date = ?, end_date = ?, event_type = ?, description = ?, reminder_time = ?, reminder_checkbox = ? WHERE event_id = ?");
+        $stmt->bind_param("sssssssi", $data->event_name, $data->start_date, $data->end_date, $data->event_type, $data->description, $data->reminder_time, $data->reminder_checkbox, $data->event_id);
 
         if ($stmt->execute()) {
             echo json_encode(["status" => "success", "message" => "Event updated successfully"]);
@@ -164,4 +188,53 @@ class CalendarController extends Controller
         $conn->close();
 
     }
+
+    //FILTER
+    public function fetchEventFilter()
+{
+    require_once ROOT_PATH . 'config/db.php';
+
+    // Parse the POST request body
+    $input = json_decode(file_get_contents('php://input'), true);
+    $filters = isset($input['filters']) ? $input['filters'] : [];
+
+    $sql = "SELECT * FROM event";
+
+    if (!empty($filters)) {
+        $placeholders = implode(',', array_fill(0, count($filters), '?'));
+        $sql .= " WHERE event_type IN ($placeholders)";
+    }
+
+    $stmt = $conn->prepare($sql);
+
+    if (!empty($filters)) {
+        $stmt->bind_param(str_repeat('s', count($filters)), ...$filters);
+    }
+
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $events = [];
+    while ($row = $result->fetch_assoc()) {
+        $events[] = [
+            'id' => $row['event_id'],
+            'title' => $row['event_name'],
+            'start' => $row['start_date'],
+            'end' => date('Y-m-d', strtotime('+1 day', strtotime($row['end_date']))),
+            'type' => $row['event_type'],
+            'description' => $row['description'] ?? '',
+            'reminder_time' => $row['reminder_time'],
+        ];
+    }
+
+    $stmt->close();
+    $conn->close();
+
+    header('Content-Type: application/json');
+    echo json_encode([
+        'status' => !empty($events) ? 'success' : 'error',
+        'event' => $events,
+    ]);
+}
+
 }
