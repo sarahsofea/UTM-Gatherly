@@ -428,3 +428,71 @@ For further customization or to learn more about these tools, you can explore th
 </table>
 
 ## SPRINT 3
+
+### Member 1: Nursyuhada
+
+### Member 2: Farah Hazirah Nisha
+<table>
+  <tr>
+    <th>File Name
+      <th>Description
+      <th>Nav to File</th>
+  </tr>
+
+  <tr>
+    <th>CalendarController.php
+      <th> 
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/CalendarController.php">Click here</a>
+  </tr>
+
+  <tr>
+    <th>SiteController.php
+      <th> 
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/SiteController.php">Click here</a>
+  </tr>
+
+  <tr>
+    <th>gatherly.sql
+      <th> 
+      <th><a href="">Click here</a>
+  </tr>
+
+  <tr>
+    <th>reminder_type.sql
+      <th> 
+      <th><a href="">Click here</a>
+  </tr>
+
+  <tr>
+    <th>index.php (Calendar index)
+      <th> Updated a FullCalendar-based event management interface
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/index.php">Click here</a>
+  </tr>
+
+  <tr>
+    <th>add_event.php
+      <th> 
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/add_event.php">Click here</a>
+  </tr>
+
+  <tr>
+    <th>update_event.php 
+      <th> 
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/update_event.php">Click here</a>
+  </tr>
+
+  <tr>
+    <th>view_event.php (Calendar index)
+      <th> 
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/calendar/view_event.php">Click here</a>
+  </tr>
+
+  <tr>
+    <th>header.php 
+      <th> 
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/index.php">Click here</a>
+  </tr>
+
+### Member 3: Nur Hafizah
+
+### Member 4: Sarah Sofea
