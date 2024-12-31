@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2024 at 12:03 PM
+-- Generation Time: Dec 31, 2024 at 06:50 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,33 +33,29 @@ CREATE TABLE `event` (
   `end_date` date NOT NULL,
   `event_type` varchar(50) NOT NULL,
   `description` varchar(1000) NOT NULL,
-  `event_name` varchar(100) NOT NULL
+  `event_name` varchar(100) NOT NULL,
+  `reminder_time` varchar(20) NOT NULL DEFAULT '0',
+  `reminder_checkbox` varchar(6) DEFAULT 'No'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `users`
+-- Dumping data for table `event`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `reset_token` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `reset_token`) VALUES
-(1, 'Syuhada', 'Syuhada@gmail.com', '$2y$10$8pjWS5yi9f73TseSEjjraumXIM3aTWcy0TXqQHlgNE1jcXoAfFFoe', NULL),
-(3, 'Syu', 'Syu@gmail.com', '$2y$10$5P5b0oYdAvjIK.UYfpzw1uX1hGKQFjTdZFY3ShSThpniGX4qX9ciW', ''),
-(4, 'Zira', 'zira@gmail.com', '$2y$10$5qfEDRlcOyCzAgJ18aV.GOunIMcia5lRtIGRdhy.zy/CRnOtac7/u', ''),
-(5, 'Sarah', 'sarah@gmail.com', '$2y$10$NxW.IgB/hdWW112FOBrr4eOR9vPfAy.xe/daqHqVXoz9C0OtWQqzq', ''),
-(6, 'pija', 'pija@gmail.com', '$2y$10$isKS6YLw/ypveH6iLkjNK.tFOFWqEpMjHyE3hsRfTQcUPiwwbN3R6', '999e11b77451442ba9fe9e3d0f336d63');
+INSERT INTO `event` (`event_id`, `start_date`, `end_date`, `event_type`, `description`, `event_name`, `reminder_time`, `reminder_checkbox`) VALUES
+(27, '2024-12-13', '2024-12-13', 'Academic', 'test 1', 'crypto test', '0', 'No'),
+(28, '2024-12-06', '2024-12-06', 'Personal', 'birthday ayah', 'Birthday Ayah', '0', 'No'),
+(29, '2024-12-04', '2024-12-04', 'Academic', 'test 1', 'INTERNETWORK TEST', '0', 'No'),
+(30, '2024-12-18', '2024-12-18', 'Entrepreneurship', 'business', 'UTM Business School Auditorium', '1 day', 'Yes'),
+(31, '2024-12-20', '2024-12-21', 'Sport', 'sport event', 'frisbee suskom', '0', 'No'),
+(32, '2024-12-20', '2024-12-20', 'Academic', 'pcs', 'submission PCS', '0', 'No'),
+(33, '2024-12-28', '2024-12-30', 'Volunteering', 'volunteering', 'Bantuan Banjir', '0', 'No'),
+(34, '2024-12-08', '2024-12-08', 'Academic', 'test 1', 'AI test', '1 hour', 'Yes'),
+(35, '2024-12-30', '2024-12-31', 'Sport', 'cuba aja', 'try', '30 minutes', 'Yes'),
+(41, '2025-01-02', '2025-01-02', 'Personal', 'iteration 3 presentation', 'AD Presentation', '3 days', 'Yes'),
+(42, '2025-01-07', '2025-01-07', 'Academic', 'Mpk3 8pm', 'SBT2 Internetwork', '4 days', 'Yes'),
+(43, '2025-01-02', '2025-01-03', 'Volunteering', '8am until 12 pm', 'blood donation', '3 days', 'Yes'),
+(44, '2025-01-04', '2025-01-05', 'Entrepreneurship', 'festival keusahawanan', 'cesco\'24', '4 days', 'Yes');
 
 --
 -- Indexes for dumped tables
@@ -72,14 +68,6 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`event_id`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -87,13 +75,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
