@@ -18,6 +18,10 @@
         /* Hover effect color */
     }
 
+    .hidden {
+        display: none;
+    }
+
     .modal-header.custom-header {
         background-color: #8c2f39; 
         color: #fff; 
@@ -64,6 +68,22 @@
           <div class="mb-3">
             <label for="edit_event_description" class="form-label">Description</label>
             <textarea class="form-control" id="edit_event_description"></textarea>
+          </div>
+          <div class="mb-3">
+              <div class="form-group">
+                  <label>Set as Reminder <i class="fa-solid fa-bell"></i></label><br>
+                  <input type="checkbox" id="edit_set_reminder" name="edit_set_reminder" >
+                  <label for="set_reminder">Yes</label>
+              </div>
+          </div>
+          <div class="mb-3" id="edit_reminder_time_container">
+            <label for="edit_event_reminder_time" class="form-label">Reminder Time</label>
+            <select class="form-control" id="edit_event_reminder_time" required>
+              <option value="" disabled selected>Select reminder time</option>
+              <?php foreach ($reminderType as $key => $value) { ?>
+                  <option value="<?php echo $value['name'] ?>"><?php echo $value['name'] ?></option>
+              <?php } ?>
+            </select>
           </div>
         </form>
       </div>
