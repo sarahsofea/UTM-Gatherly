@@ -453,14 +453,14 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>gatherly.sql
-      <th> 
-      <th><a href="">Click here</a>
+      <th> Updated calendar events database
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/db/gatherly.sql">Click here</a>
   </tr>
 
   <tr>
     <th>reminder_type.sql
-      <th> 
-      <th><a href="">Click here</a>
+      <th> Reminder notifications database
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/db/reminder_type.sql">Click here</a>
   </tr>
 
   <tr>
@@ -493,6 +493,7 @@ For further customization or to learn more about these tools, you can explore th
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/index.php">Click here</a>
   </tr>
 
+</table>
 ### Member 3: Nur Hafizah
 
 ### Member 4: Sarah Sofea
