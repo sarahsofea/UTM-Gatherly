@@ -490,10 +490,11 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>header.php 
       <th> Updated UTM Gatherly interface's header (Reminder Notifications) 
-      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/index.php">Click here</a>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/header.php">Click here</a>
   </tr>
 
 </table>
+
 ### Member 3: Nur Hafizah
 
 ### Member 4: Sarah Sofea
