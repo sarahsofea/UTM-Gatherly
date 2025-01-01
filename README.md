@@ -430,13 +430,25 @@ For further customization or to learn more about these tools, you can explore th
 ## SPRINT 3
 
 ### Member 1: Nursyuhada
+<table>
+  <tr>
+    <th>index.php
+      <th>Create dahsboard
+      <th>Nav to File</th>
+  </tr>
 
+  <tr>
+    <th>CalendarController.php
+      <th> Updated fetches and formats events from the database for FullCalendar's interface
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/CalendarController.php">Click here</a>
+  </tr>
 ### Member 2: Farah Hazirah Nisha
 <table>
   <tr>
     <th>File Name
       <th>Description
-      <th>Nav to File</th>
+       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/SiteController.php">Click here</a>
+  </tr>
   </tr>
 
   <tr>
