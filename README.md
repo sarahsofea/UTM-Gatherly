@@ -534,3 +534,17 @@ For further customization or to learn more about these tools, you can explore th
 </table>
 
 ### Member 4: Sarah Sofea
+<table>
+  <tr>
+    <th>File Name
+      <th>Description
+      <th>Nav to File</th>
+  </tr>
+
+  <tr>
+    <th>eventhistory.php
+      <th> Event History Page
+      <th><a href="iteration 1/History and view (Sarah Sofea)/eventhistory.php">click here</a>
+  </tr>
+
+</table>
