@@ -520,7 +520,7 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>fetchEvents.php
       <th>Fetch events based on club chosen
-      <th><a href="">click here</a>
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/fetchEvents.php">click here</a>
   </tr>
   
 </table>
