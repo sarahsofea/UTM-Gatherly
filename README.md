@@ -522,7 +522,7 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>viewClub.php
       <th>View Clubs details
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClub.php">click here</a>
+      <th><a href="   iteration 3/index.php">click here</a>
   </tr>
 
   <tr>
