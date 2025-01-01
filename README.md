@@ -434,9 +434,10 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>index.php
       <th>Create dahsboard
-      <th>Nav to File</th>
+      <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/SiteController.php">Click here</a>
   </tr>
 </table>
+
  ### Member 2: Farah Hazirah Nisha 
 <table>
   <tr>
