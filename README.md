@@ -436,6 +436,7 @@ For further customization or to learn more about these tools, you can explore th
       <th>Create dahsboard
       <th>Nav to File</th>
   </tr>
+</table>
  ### Member 2: Farah Hazirah Nisha 
 <table>
   <tr>
