@@ -9,12 +9,10 @@
     </div>
   </div>
 
-    <div class="col-md-3">
-        <!-- Filter Event views -->
-        <?php include 'filter.php'; ?>
-        <!-- End Filter Event Form -->
-      </div>
-    </div>
+  <div class="col-md-3">
+      <!-- Filter Event views -->
+      <?php include 'filter.php'; ?>
+      <!-- End Filter Event Form -->
   </div>
 </div>
 
