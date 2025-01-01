@@ -440,7 +440,7 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>index.php
       <th>View Dashboard
-      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClub.php">click here</a>
+      <th><a href="">click here</a>
   </tr>  
 </table>
 
