@@ -497,4 +497,25 @@ For further customization or to learn more about these tools, you can explore th
 
 ### Member 3: Nur Hafizah
 
+<table>
+  <tr>
+    <th>File Name
+      <th>Description
+      <th>Nav to File</th>
+  </tr>
+
+  <tr>
+    <th>viewClub.php
+      <th>View Clubs details
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClub.php">click here</a>
+  </tr>
+
+  <tr>
+    <th>fetchEvents.php
+      <th>Fetch events based on club chosen
+      <th><a href="">click here</a>
+  </tr>
+  
+</table>
+
 ### Member 4: Sarah Sofea
