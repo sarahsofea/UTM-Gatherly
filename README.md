@@ -434,10 +434,16 @@ For further customization or to learn more about these tools, you can explore th
   <tr>
     <th>File Name
       <th>Description
-      <th><a href="iteration 3/Nursyuhada/index.php">Click here</a>
+      <th>Nav to File</th>
   </tr>
-</tr>
+
+  <tr>
+    <th>index.php
+      <th>View Dashboard
+      <th><a href="iteration 1/Club Directory (Hafizah)/club-directory/viewClub.php">click here</a>
+  </tr>  
 </table>
+
 
  ### Member 2: Farah Hazirah Nisha 
 <table>
