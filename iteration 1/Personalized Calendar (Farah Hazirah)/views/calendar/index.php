@@ -215,6 +215,11 @@
         return false;
     }
 
+    if (set_reminder === "Yes" && (!event_time_reminder || !["1 days", "2 days", "3 days", "4 days"].includes(event_time_reminder))) {
+        alert("Please select a valid reminder time.");
+        return false;
+    }
+
     var formData = new FormData();
     formData.append("event_name", event_name);
     formData.append("event_start_date", event_start_date);
@@ -368,6 +373,11 @@
         if (!eventName || !startDate || !endDate || !eventType) {
             alert("Please fill all required fields.");
             return;
+        }
+
+        if (reminderCheckbox === "Yes" && (!reminderTime || !["1 days", "2 days", "3 days", "4 days"].includes(reminderTime))) {
+        alert("Please select a valid reminder time.");
+        return false;
         }
 
         fetch("<?= BASE_URL; ?>index.php?r=calendar/updateEvent", {
