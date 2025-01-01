@@ -543,7 +543,7 @@ For further customization or to learn more about these tools, you can explore th
 
   <tr>
     <th>eventhistory.php
-      <th> Event History Page
+      <th> Updated Event History Page
       <th><a href="iteration 1/History and view (Sarah Sofea)/eventhistory.php">click here</a>
   </tr>
 
