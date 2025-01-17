@@ -564,5 +564,11 @@ For further customization or to learn more about these tools, you can explore th
       <th> Updated fetches and formats events from the database for FullCalendar's interface, link to user id
       <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/controllers/CalendarController.php">Click here</a>
   </tr>
+
+  <tr>
+  <th>header.php
+    <th> UTM Gatherly interface's header
+    <th><a href="iteration 1/Personalized Calendar (Farah Hazirah)/views/layout/header.php">click here</a>
+  </tr>
   
 </table>
