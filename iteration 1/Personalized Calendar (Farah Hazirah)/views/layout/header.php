@@ -16,6 +16,10 @@
             background: linear-gradient(to right, #4b0000, #800000, #b22222) !important;
         }
 
+        .user-name-text {
+            color: var(--vz-header-item-color);
+        }
+        
         .avatar-xs {
             height: 2rem;
             width: 2rem;
@@ -23,12 +27,11 @@
 
         .text-muted {
         color: #6c757d !important;
-    }
+        }
 
-    .dropdown-item i {
-        font-size: 1.5rem; /* Adjust icon size */
-    }
-
+        .dropdown-item i {
+            font-size: 1.5rem; /* Adjust icon size */
+        }
     </style>
 </head>
 
@@ -36,25 +39,26 @@
     <header class="p-3 bg-maroon-gradient">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="index.php" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img class="bi me-2" src="<?php echo IMAGE_URL; ?>gatherly.png" alt="Gatherly Logo" width="40"
-                        height="32">
+                <a href="<?php echo BASE_URL; ?>index.php?r=site/index" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img class="me-2" src="<?php echo IMAGE_URL; ?>utmlogobw.png" alt="UTM Logo" width="157"
+                        height="42">
+                    <img class="me-2" src="<?php echo IMAGE_URL; ?>gatherly.png" alt="Gatherly Logo" width="60"
+                        height="42">
                 </a>
-
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="<?php echo BASE_URL; ?>index.php?r=site/index"
                             class="nav-link px-2 text-white">Dashboard</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?r=calendar/index"
                             class="nav-link px-2 text-white">Calendar</a></li>
-                    <li><a href="#"
+                    <li><a href="<?php echo BASE_URL; ?>index.php?r=club/club"
                             class="nav-link px-2 text-white">Club</a></li>
-                    <li><a href="#"
+                    <li><a href="<?php echo BASE_URL; ?>index.php?r=event/index"
                             class="nav-link px-2 text-white">Event</a></li>
-                    <li><a href="#"
+                    <li><a href="<?php echo BASE_URL; ?>index.php?r=history/eventHistory"
                             class="nav-link px-2 text-white">History</a></li>
                 </ul>
 
-                <div class="dropdown pe-3">
+                <div class="dropdown">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" 
                             id="page-header-notifications-dropdown" data-bs-toggle="dropdown" 
                             data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
@@ -73,19 +77,26 @@
                     </div>
                 </div>
 
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="<?php echo IMAGE_URL; ?>profilepicture.jpg" alt="mdo" width="32" height="32"
-                            class="rounded-circle">
-                    </a>
-                    <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
+                <div class="dropdown header-item topbar-user">
+                    <button type="button" class="btn" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="d-flex align-items-center">
+                            <img class="rounded-circle header-profile-user" src="<?php echo IMAGE_URL; ?>profilepicture.jpg" width="32" height="32" alt="Header Avatar">
+                            <span class="text-start ms-xl-2">
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium text-white"><?php echo $_SESSION['username']?></span>
+                                <!-- <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">User Role</span> -->
+                            </span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 65px, 0px);">
+                        <!-- list dropdown item-->
+                        <h6 class="dropdown-header">Welcome <?php echo $_SESSION['username']?>!</h6>
+                        <!-- profile -->
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?r=profile/createProfile"><i class="fa-solid fa-circle-user"></i> <span class="align-middle">Profile</span></a>
+                        <div class="dropdown-divider"></div>
+                        <!-- logout -->
+                        <a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?r=site/logout"><i class="fa-solid fa-right-from-bracket fa-fade fa-sm align-middle me-2" style="color: #f06060;"></i><span class="align-middle" style="color: #f06060;">Logout</span></a>
+                    </div>
+
                 </div>
             </div>
         </div>
