@@ -21,18 +21,19 @@ class CalendarController extends Controller
 
         // Retrieve the type parameter
         $type = isset($_GET['type']) ? $_GET['type'] : null;
+        $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
         // Initialize an empty array for events
         $event = [];
 
-        $colour = ['Personal' => '#42a5f5', 'Academic' => '#ec407a', 'Sport' => '#ffb300', 'Entrepreneurship' => '#66bb6a', 'Volunteering' => '#ff7043'];
+        $colour = ['Personal' => '#42a5f5', 'Academic' => '#ec407a', 'Sport' => '#ffb300', 'Entrepreneurship' => '#66bb6a', 'Volunteering' => '#ff7043', 'Entertainment' => 'rgb(160, 102, 187)'];
 
         // Check if type is provided
         if ($type !== null) {
             // Prepare the SQL query to filter by event_type
-            $sql = "SELECT * FROM event WHERE event_type = ?";
+            $sql = "SELECT * FROM event WHERE event_type = ? AND user_id = ?";
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $type); // Bind the type parameter to the query
+            $stmt->bind_param("si", $type, $user_id ); // Bind the type parameter to the query
             $stmt->execute();
             $result = $stmt->get_result();
 
@@ -85,9 +86,10 @@ class CalendarController extends Controller
 
             $reminder_time = isset($_POST['reminder_time']) && $_POST['set_reminder'] === 'Yes' ? $_POST['reminder_time'] : '0';
             $set_reminder = isset($_POST['set_reminder']) && $_POST['set_reminder'] === 'Yes' ? 'Yes' : 'No';
+            $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
-            $stmt = $conn->prepare("INSERT INTO event (event_name, start_date, end_date, event_type, description, reminder_checkbox, reminder_time) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssss", $event_name, $start_date, $end_date, $event_type, $description, $set_reminder, $reminder_time);
+            $stmt = $conn->prepare("INSERT INTO event (event_name, user_id, start_date, end_date, event_type, description, reminder_checkbox, reminder_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sissssss", $event_name, $user_id, $start_date, $end_date, $event_type, $description, $set_reminder, $reminder_time);
             if ($stmt->execute()) {
                 echo json_encode(["status" => "success", "message" => "Event created successfully"]);
             } else {
@@ -191,50 +193,58 @@ class CalendarController extends Controller
 
     //FILTER
     public function fetchEventFilter()
-{
-    require_once ROOT_PATH . 'config/db.php';
+    {
+        $user_id = $_SESSION['user_id'];
 
-    // Parse the POST request body
-    $input = json_decode(file_get_contents('php://input'), true);
-    $filters = isset($input['filters']) ? $input['filters'] : [];
-
-    $sql = "SELECT * FROM event";
-
-    if (!empty($filters)) {
-        $placeholders = implode(',', array_fill(0, count($filters), '?'));
-        $sql .= " WHERE event_type IN ($placeholders)";
+        $sql = "SELECT * FROM event WHERE user_id = ?";
+        $filterClause = "";
+        
+        if (!empty($filters)) {
+            $placeholders = implode(',', array_fill(0, count($filters), '?'));
+            $filterClause = " AND event_type IN ($placeholders)";
+        }
+        
+        $sql .= $filterClause;
+        
+        // Prepare statement
+        $stmt = $conn->prepare($sql);
+        
+        // Dynamically bind parameters without unpacking
+        if (!empty($filters)) {
+            // Combine the types string and values into an array
+            $types = str_repeat('s', count($filters)) . 'i';  // 's' for filters, 'i' for user_id
+            $params = array_merge($filters, [$user_id]);      // Combine filters and user_id
+            $stmt->bind_param($types, ...$params);            // Unpack the array as parameters
+        } else {
+            $stmt->bind_param("i", $user_id);
+        }
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        // Process the result as needed
+        $events = [];
+        while ($row = $result->fetch_assoc()) {
+            $events[] = [
+                'id' => $row['event_id'],
+                'title' => $row['event_name'],
+                'start' => $row['start_date'],
+                'end' => date('Y-m-d', strtotime('+1 day', strtotime($row['end_date']))),
+                'type' => $row['event_type'],
+                'description' => $row['description'] ?? '',
+                'reminder_time' => $row['reminder_time'],
+            ];
+        }
+        
+        $stmt->close();
+        $conn->close();
+        
+        header('Content-Type: application/json');
+        echo json_encode([
+            'status' => !empty($events) ? 'success' : 'error',
+            'event' => $events,
+        ]);
     }
-
-    $stmt = $conn->prepare($sql);
-
-    if (!empty($filters)) {
-        $stmt->bind_param(str_repeat('s', count($filters)), ...$filters);
-    }
-
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    $events = [];
-    while ($row = $result->fetch_assoc()) {
-        $events[] = [
-            'id' => $row['event_id'],
-            'title' => $row['event_name'],
-            'start' => $row['start_date'],
-            'end' => date('Y-m-d', strtotime('+1 day', strtotime($row['end_date']))),
-            'type' => $row['event_type'],
-            'description' => $row['description'] ?? '',
-            'reminder_time' => $row['reminder_time'],
-        ];
-    }
-
-    $stmt->close();
-    $conn->close();
-
-    header('Content-Type: application/json');
-    echo json_encode([
-        'status' => !empty($events) ? 'success' : 'error',
-        'event' => $events,
-    ]);
-}
+        
 
 }
